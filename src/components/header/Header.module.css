@@ -1,4 +1,4 @@
-.main-header{
+.mainHeader{
     display: flex;
     justify-content: space-between;
     padding: 2rem;
@@ -12,11 +12,11 @@
 
 }
 
-.main-header > .logo {
+.logo {
     font-size:  2rem;
     line-height: 1em;
 }
 
-.main-header > .btn {
+.btn {
 
 }
