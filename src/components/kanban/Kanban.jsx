@@ -1,62 +1,39 @@
 import style from './Kanban.module.css';
+import { KanbanColumn } from './KanbanColumn';
+import { TaskCard } from './TaskCard';
 
 export function Kanban(){
+    const data =[
+        {
+            id: 1,
+            columnIndex: 1,
+            title: "Task dascrition abaout HTML", 
+            deadline: "2024-01-01",
+            tags: ["html", "font", "color"],
+        }, 
+        {
+            id: 2,
+            columnIndex: 0,
+            title: "Task dascrition abaout js", 
+            deadline: "2024-01-01",
+            tags: ["js", "VS Code"],
+        }, 
+        {
+            id: 3,
+            columnIndex: 0,
+            title: "Task dascrition abaout CSS", 
+            deadline: "2024-01-01",
+            tags: ["CSS", "bg image", "color"],
+        }, 
+    ];
+
     return <section id="kanban" className={style.todo} style={{
     gridtemplatecolumns: 'repeat(4, 1fr)',
     }}>
-        <div className={style.column}>
-            <h2 className={style.title + ' normal undeline'}>Backlog</h2>
-            <ul className={style.taskList}>
-                <li id="task_2" className={style.taskCard}>
-                    <div className={style.taskActions}>
-                        <button className={style.btn}>Del</button>
-                        {/* <button className="fa fa-trash"></button> */}
-                    </div>
-                    <div className={style.taskTitle}>sadfsdfa</div>
-                    <div className={style.taskDesc}>sadfsdfa</div>
-                    <div className={style.taskTags}><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>sadfsda</div></div>
-                    <div className={style.taskDeadline}>sadfsadf</div>
-                </li>
-                <li id="task_3" className={style.taskCard}>
-                    <div className={style.taskActions}>
-                        <button className={style.btn}>Del</button>
-                        {/* <button className="fa fa-trash"></button> */}
-                    </div>
-                    <div className={style.taskTitle}>sadfsadf</div>
-                    <div className={style.taskDesc}>asfdsafd</div>
-                    <div className={style.taskTags}><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>sad</div><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>sadfsdaf</div><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>sadf</div><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>sdfsafd</div></div>
-                    <div className={style.taskDeadline}>sadfsadfasdf</div>
-                </li>
-                <li id="task_4" className={style.taskCard}>
-                    <div className={style.taskActions}>
-                        <button className={style.btn}>Del</button>
-                        {/* <button className="fa fa-trash"></button> */}
-                    </div>
-                <div className={style.taskTitle}>dfgd</div>
-                <div className={style.taskDesc}>dsfgdsfg</div>
-                <div className={style.taskTags}><div className="tag" style={{color: '#f33', backgroundcolor: '#f331'}}>dfg</div></div>
-                <div className={style.taskDeadline}>dsfgdfg</div>
-                </li>
-            </ul>
-        </div>
-        <div className={style.column}>
-            <h2 className={style.title}>Todo</h2>
-            <ul className={style.taskList}>
-    
-                </ul>
-        </div>
-        <div className={style.column}>
-            <h2 className={style.title}>In progress</h2>
-            <ul className={style.taskSList}>
-    
-                </ul>
-        </div>
-        <div className={style.column}>
-            <h2 className={style.title}>Done</h2>
-            <ul className={style.taskList}>
-    
-                </ul>
-        </div>
+        <KanbanColumn tasks={data.filter((a) => a.columnIndex === 0)} title="Backlog"/>
+        <KanbanColumn tasks={data.filter((a) => a.columnIndex === 1)} title="Todo"/>
+        <KanbanColumn tasks={data.filter((a) => a.columnIndex === 2)} title="In Progress"/>
+        <KanbanColumn tasks={data.filter((a) => a.columnIndex === 3)} title="Done"/>
     </section>
 
 }
