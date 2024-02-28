@@ -1,6 +1,6 @@
 {
-  "homepage": "http://madrakas.github.io/bit_07_react_intro",
-  "name": "07_react-intro",
+  "homepage": "http://madrakas.github.io/bit_07_03_homework_react_kanban",
+  "name": "bit_07_03_homework_react_kanban",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
