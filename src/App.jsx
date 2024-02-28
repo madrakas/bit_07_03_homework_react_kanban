@@ -1,7 +1,7 @@
+import { useState } from "react";
+import { Footer } from "./components/footer/Footer";
 import { Header } from "./components/header/Header";
 import { Main } from "./components/main/Main";
-import { Footer } from "./components/footer/Footer";
-import { useState } from "react";
 
 const data = [
   {
@@ -34,22 +34,45 @@ const data = [
 ];
 
 function App() {
+  const [usedTaskId, setUsedTaskId] = useState(3);
   const [isAsideVisible, setAsideVisibility] = useState(false);
   const [tasks, setTasks] = useState(data);
 
-  function updateAsideVisibilty(newVisibility) {
+  function updateAsideVisibility(newVisibility) {
     setAsideVisibility(newVisibility);
   }
 
   function addTask(task) {
-    setTasks(perv => [...perv, task]);
+    setTasks(prev => [
+      ...prev,
+      {
+        id: usedTaskId + 1,
+        isDeleted: false,
+        ...task
+      }
+    ]);
+    setAsideVisibility(false);
+    setUsedTaskId(usedTaskId + 1);
+  }
+
+  function removeTask(taskId) {
+    setTasks(prev => prev.map(task => task.id !== taskId
+      ? task
+      : {
+        ...task,
+        isDeleted: true,
+      }));
   }
 
   return (
     <>
-      <Header updateAsideVisibility={updateAsideVisibilty}/>
-      <Main tasks={tasks} isAsideVisible={isAsideVisible} addTask={addTask}/>
-      <Footer/>
+      <Header updateAsideVisibility={updateAsideVisibility} />
+      <Main tasks={tasks.filter(task => !task.isDeleted)}
+        isAsideVisible={isAsideVisible}
+        addTask={addTask}
+        removeTask={removeTask}
+      />
+      <Footer />
     </>
   );
 }
