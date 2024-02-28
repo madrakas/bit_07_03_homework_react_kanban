@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bit_07_03_homework_react_kanban/static/css/main.f9da66b1.css",
+    "main.js": "/bit_07_03_homework_react_kanban/static/js/main.ee62eed7.js",
+    "index.html": "/bit_07_03_homework_react_kanban/index.html",
+    "main.f9da66b1.css.map": "/bit_07_03_homework_react_kanban/static/css/main.f9da66b1.css.map",
+    "main.ee62eed7.js.map": "/bit_07_03_homework_react_kanban/static/js/main.ee62eed7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9da66b1.css",
+    "static/js/main.ee62eed7.js"
+  ]
+}
